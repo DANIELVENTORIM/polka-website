@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolKA: Arquitetura Técnica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .architecture-img {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <h1>PolKA: Polynomial Key-based Architecture</h1>
+
+        <div class="section">
+            <h2>Visão Geral</h2>
+            <p>O PolKA é uma arquitetura de roteamento <strong>stateless</strong> baseada em:</p>
+            <ul>
+                <li>Sistema de Numeração por Resíduos (RNS)</li>
+                <li>Teorema Chinês do Resto (TCR)</li>
+                <li>Aritmética Polinomial em Galois Fields (GF(2))</li>
+            </ul>
+            
+            <img src="https://via.placeholder.com/800x400?text=Arquitetura+PolKA" 
+                 alt="Diagrama da Arquitetura PolKA" 
+                 class="architecture-img">
+        </div>
+
+        <div class="section">
+            <h2>Princípios Técnicos</h2>
+            
+            <h3>Componentes Chave</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Descrição</th>
+                    <th>Formato</th>
+                </tr>
+                <tr>
+                    <td>nodeID</td>
+                    <td>Identificador único do nó (polinômio irredutível)</td>
+                    <td><code>GF(2)[x]/⟨p(x)⟩</code></td>
+                </tr>
+                <tr>
+                    <td>portID</td>
+                    <td>Identificador de porta (polinômio binário)</td>
+                    <td><code>b<sub>n</sub>x<sup>n</sup> + ... + b<sub>0</sub></code></td>
+                </tr>
+                <tr>
+                    <td>routeID</td>
+                    <td>Identificador de rota calculado via TCR</td>
+                    <td><code>CRT(nodeID<sub>i</sub>, portID<sub>i</sub>)</code></td>
+                </tr>
+            </table>
+
+            <h3>Fluxo de Operação</h3>
+            <ol>
+                <li><strong>Configuração:</strong> Controlador SDN atribui nodeIDs e portIDs</li>
+                <li><strong>Cálculo de Rota:</strong> Gera routeID usando TCR para caminho desejado</li>
+                <li><strong>Encapsulamento:</strong> Edge nodes adicionam routeID ao cabeçalho</li>
+                <li><strong>Forwarding:</strong> Nós core calculam <code>portID = routeID mod nodeID</code></li>
+                <li><strong>Decapsulamento:</strong> Edge final remove routeID</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Inovações Principais</h2>
+            
+            <div class="innovation-grid">
+                <div class="innovation">
+                    <h3>Stateless Forwarding</h3>
+                    <p>Nós core não mantêm tabelas de roteamento - decisão via operação modular</p>
+                </div>
+            
+                <div class="innovation">
+                    <h3>Header Fixo</h3>
+                    <p>Cabeçalho de 128 bits independente do comprimento do caminho</p>
+                </div>
+            
+                <div class="innovation">
+                    <h3>Line Rate Processing</h3>
+                    <p>Implementação em hardware via CRC (Cyclic Redundancy Check)</p>
+                    <code>MOD ≡ 2 SHIFTs + 1 CRC + 2 XORs</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Aplicações Práticas</h2>
+            
+            <h3>Casos de Uso</h3>
+            <ul>
+                <li>Data Intensive Science (DIS)</li>
+                <li>Redes 5G/6G com Network Slicing</li>
+                <li>Cloud Networking de Última Geração</li>
+                <li>IoT de Alta Densidade</li>
+            </ul>
+
+            <h3>Benchmarks</h3>
+            <table>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Resultado</th>
+                </tr>
+                <tr>
+                    <td>Latência de Reconfiguração</td>
+                    <td>< 1ms</td>
+                </tr>
+                <tr>
+                    <td>Throughput Máximo</td>
+                    <td>200Gbps (Tofino ASIC)</td>
+                </tr>
+                <tr>
+                    <td>Escalabilidade de Rotas</td>
+                    <td>O(1) por salto</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Recursos Adicionais</h2>
+            <ul>
+                <li><a href="https://github.com/nerds-ufes/polka" target="_blank">Repositório Oficial</a></li>
+                <li><a href="https://doi.org/10.1109/TNSM.2024.3389457" target="_blank">Paper: PoT-PolKA</a></li>
+                <li><a href="https://ieeexplore.ieee.org/document/10032668" target="_blank">Artigo Fundador (IEEE LATINCOM 2022)</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

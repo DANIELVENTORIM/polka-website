@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicações do PolKA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <header class="py-3">
+            <h1 class="text-center text-primary">
+                <img src="logo.png" alt="PolKA Logo" class="img-fluid rounded" style="max-height: 50px; margin-right: 10px;">
+                PolKA (Polynomial Key-based Architecture)
+                <img src="nerdsufes_logo.jpeg" alt="NERDS UFES Logo" class="img-fluid rounded" style="max-height: 50px; margin-left: 10px;">
+            </h1>
+        </header>
+
+        <section class="introduction-section mb-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>O PolKA (Polynomial Key-based Architecture) é uma revolução no roteamento de redes, projetado para atender às demandas da ciência de dados intensivos e ambientes de alta performance. Desenvolvido por pesquisadores brasileiros da UFES, Inatel e RNP, em colaboração com instituições globais como Caltech e Qualcomm, o PolKA redefine o controle sobre caminhos de rede usando uma arquitetura stateless baseada em polinômios. Enquanto protocolos tradicionais operam como "caixas-pretas", limitados a rotas pré-definidas e tabelas complexas, o PolKA codifica caminhos dinâmicos por meio do Teorema Chinês do Resto (TCR) e operações modulares, executadas em hardware a 100-200 Gbps. Essa abordagem elimina a necessidade de tabelas de roteamento em nós centrais, garantindo agilidade milissegundos para reconfiguração de rotas, escalabilidade ilimitada e segurança intrínseca contra ataques de spoofing. Imagine direcionar fluxos de dados massivos em redes 5G ou data centers com a precisão de um GPS, escolhendo rotas otimizadas em tempo real — é isso que o PolKA torna possível!</p>
+                    <p>Além de ser open source, o PolKA já está em operação em ambientes reais, como o testbed do Caltech, onde demonstrou capacidade de transporte de múltiplos fluxos agregados em largura de escala, integração com IA para traffic steering e auditoria de rotas em blockchain. Reconhecido com o Google Research Scholar Award e o Intel Connectivity Research Grant, o projeto avança rumo a aplicações inovadoras: desde comunicações quânticas até redes de próxima geração para o LHC no CERN. Com colaborações globais e uma comunidade ativa no GitHub, o PolKA não é apenas uma solução — é um ecossistema que está moldando o futuro das redes inteligentes, onde cada pacote traça seu próprio caminho, seguro, eficiente e sob controle total. O amanhã das redes já começou, e seu nome é PolKA! 🚀</p>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <footer class="text-center py-3">
+            <p>&copy; 2025 PolKA Articles</p>
+        </footer>
+    </div>
+
+    <script>
+        function ordenarTabela(coluna) {
+            var tabela = document.getElementById("tabela-publicacoes");
+            var linhas = Array.from(tabela.rows).slice(1);
+            var ordemAtual = tabela.getAttribute("data-order") === "asc";
+            tabela.setAttribute("data-order", ordemAtual ? "desc" : "asc");
+
+            linhas.sort(function(a, b) {
+                var valorA = a.cells[coluna].innerText.toLowerCase();
+                var valorB = b.cells[coluna].innerText.toLowerCase();
+                if (valorA < valorB) return ordemAtual ? -1 : 1;
+                if (valorA > valorB) return ordemAtual ? 1 : -1;
+                return 0;
+            });
+
+            linhas.forEach(function(linha) {
+                tabela.appendChild(linha);
+            });
+        }
+
+        function ordenarTabelaNumerica(coluna) {
+            var tabela = document.getElementById("tabela-publicacoes");
+            var linhas = Array.from(tabela.rows).slice(1);
+            var ordemAtual = tabela.getAttribute("data-order") === "asc";
+            tabela.setAttribute("data-order", ordemAtual ? "desc" : "asc");
+
+            linhas.sort(function(a, b) {
+                var valorA = parseInt(a.cells[coluna].innerText);
+                var valorB = parseInt(b.cells[coluna].innerText);
+                return ordemAtual ? valorA - valorB : valorB - valorA;
+            });
+
+            linhas.forEach(function(linha) {
+                tabela.appendChild(linha);
+            });
+        }
+    </script>
+</body>
+</html>
