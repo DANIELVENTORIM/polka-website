@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos da Equipe PolKA</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Contact the PolKA Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
-    <div class="container">
-        <nav class="navbar">
-            <a href="index.html">Home</a>
-            <a href="publications.html">Publications</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="PolKA Logo" style="max-height: 40px; vertical-align: middle; margin-right: 10px;">
+                PolKA
+            </a>
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="publications.html">Publications</a></li>
+                <li><a class="nav-link" href="about.html">About</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <h1 class="text-center text-primary my-4">Contatos da Equipe PolKA</h1>
+    <div class="container">
+        <h1 class="my-4 text-center">Contact the PolKA Team</h1>
 
         <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead class="table-primary">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Cargo</th>
-                        <th>Instituição</th>
-                        <th>Contato</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Institution</th>
+                        <th>Contact</th>
                         <th>Links</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Magnos Martinello -->
                     <tr>
-                        <td><img src="magnos.jpeg" alt="Magnos Martinello" class="contact-image">Magnos Martinello</td>
-                        <td>Coordenador do Projeto</td>
+                        <td><img src="images/magnos.jpeg" alt="Magnos Martinello" class="contact-image">Magnos Martinello</td>
+                        <td>Project Coordinator</td>
                         <td>UFES</td>
                         <td>
                             <a href="mailto:magnos.martinello@ufes.br">magnos.martinello@ufes.br</a>
@@ -47,21 +54,21 @@
 
                     <!-- Moises Ribeiro -->
                     <tr>
-                        <td><img src="moises.jpg" alt="Moises Ribeiro" class="contact-image">Moises Ribeiro</td>
-                        <td>Pesquisador de Pós-Doutorado</td>
+                        <td><img src="images/moises.jpg" alt="Moises Ribeiro" class="contact-image">Moises Ribeiro</td>
+                        <td>Postdoctoral Researcher</td>
                         <td>UFES</td>
                         <td>
                             <a href="mailto:moises.ribeiro@ufes.br">moises.ribeiro@ufes.br</a>
                         </td>
                         <td>
-                            <a href="http://lattes.cnpq.br/" target="_blank">Lattes</a> (atualizar)
+                            <a href="http://lattes.cnpq.br/" target="_blank">Lattes</a> (update)
                         </td>
                     </tr>
 
                     <!-- Cristina Klippel Dominicini -->
                     <tr>
-                        <td><img src="cristina.jpeg" alt="Cristina Klippel Dominicini" class="contact-image">Cristina Klippel Dominicini</td>
-                        <td>Pesquisadora Sênior</td>
+                        <td><img src="images/cristina.jpeg" alt="Cristina Klippel Dominicini" class="contact-image">Cristina Klippel Dominicini</td>
+                        <td>Senior Researcher</td>
                         <td>IFES</td>
                         <td>
                             <a href="mailto:cristina.dominicini@ifes.edu.br">cristina.dominicini@ifes.edu.br</a>
@@ -73,8 +80,8 @@
 
                     <!-- Rafael S. Guimarães -->
                     <tr>
-                        <td><img src="rafael.jpeg" alt="Rafael S. Guimarães" class="contact-image">Rafael S. Guimarães</td>
-                        <td>Engenheiro de Redes</td>
+                        <td><img src="images/rafael.jpeg" alt="Rafael S. Guimarães" class="contact-image">Rafael S. Guimarães</td>
+                        <td>Network Engineer</td>
                         <td>IFES</td>
                         <td>
                             <a href="mailto:rafael.guimaraes@ifes.edu.br">rafael.guimaraes@ifes.edu.br</a>
@@ -86,8 +93,8 @@
 
                     <!-- Everson Scherrer Borges -->
                     <tr>
-                        <td><img src="everson.jpeg" alt="Everson Scherrer Borges" class="contact-image">Everson Scherrer Borges</td>
-                        <td>Doutorando</td>
+                        <td><img src="images/everson.jpeg" alt="Everson Scherrer Borges" class="contact-image">Everson Scherrer Borges</td>
+                        <td>PhD Student</td>
                         <td>UFES</td>
                         <td>
                             <a href="mailto:everson.borges@ufes.br">everson.borges@ufes.br</a>
@@ -101,12 +108,19 @@
         </div>
 
         <div class="mt-4 text-muted">
-            <p>🔍 <strong>Nota:</strong> Para contatos institucionais adicionais:</p>
+            <p>🔍 <strong>Note:</strong> For additional institutional contacts:</p>
             <ul>
-                <li>Visite o <a href="https://www.ufes.br" target="_blank">site da UFES</a></li>
-                <li>Acesse o <a href="https://www.ifes.edu.br" target="_blank">portal do IFES</a></li>
+                <li>Visit the <a href="https://www.ufes.br" target="_blank">UFES website</a></li>
+                <li>Access the <a href="https://www.ifes.edu.br" target="_blank">IFES portal</a></li>
             </ul>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PolKA Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
